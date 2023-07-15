@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+lind: Deployment
+metadata:
+  name: nginx
+  namespace: prod
+  labels:
+    apps: nginx
+spec:
+  replica: 1
+  selector:
+    matchLabels:
+      label:
+        app: nginx
+  template:
+    metadata:
+      labels: 
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: erecica/nginx:v0.1.0
+          ports: 
+            - containerPort: 80
+            
