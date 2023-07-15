@@ -1,25 +1,23 @@
 ---
 apiVersion: apps/v1
-lind: Deployment
+kind: Deployment
 metadata:
   name: nginx
-  namespace: prod
+  namespace: foo
   labels:
-    apps: nginx
+    app: nginx
 spec:
-  replica: 1
+  replicas: 1
   selector:
     matchLabels:
-      label:
-        app: nginx
+      app: nginx
   template:
     metadata:
-      labels: 
+      labels:
         app: nginx
     spec:
       containers:
         - name: nginx
           image: erecica/nginx:v0.1.0
-          ports: 
+          ports:
             - containerPort: 80
-            
